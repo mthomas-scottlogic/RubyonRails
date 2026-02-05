@@ -7,4 +7,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, message: "must be at least 6 characters" }, if: -> { new_record? || !password.nil? }
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+
+
+  enum :role, %w[author admin]
 end
