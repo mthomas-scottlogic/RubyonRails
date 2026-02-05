@@ -23,12 +23,23 @@
   "forwardPorts": [3000, 5432],
 
   // Configure tool-specific properties.
-  // "customizations": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rebornix.Ruby",
+        "GraphQL.vscode-graphql",
+        "GraphQL.vscode-graphql-syntax",
+        "ruby-debugger.ruby-debugger",
+        "ms-ossdata.vscode-pgsql",
+        "koichisasada.vscode-rdbg"
+      ]
+    }
+  },
 
   // Uncomment to connect as root instead. More info: https://containers.dev/implementors/json_reference/#remoteUser.
   // "remoteUser": "root",
 
 
-  // Use 'postCreateCommand' to run commands after the container is created.
+ // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "bin/setup --skip-server && echo alias r=bin/rails >> /home/vscode/.bashrc"
 }
