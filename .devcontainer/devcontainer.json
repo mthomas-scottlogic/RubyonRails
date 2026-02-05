@@ -1,7 +1,7 @@
 // For format details, see https://containers.dev/implementors/json_reference/.
 // For config options, see the README at: https://github.com/devcontainers/templates/tree/main/src/ruby
 {
-  "name": "graphql_app",
+  "name": "RubyonRails",
   "dockerComposeFile": "compose.yaml",
   "service": "rails-app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
@@ -26,10 +26,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "rebornix.Ruby",
         "GraphQL.vscode-graphql",
         "GraphQL.vscode-graphql-syntax",
-        "ruby-debugger.ruby-debugger",
         "ms-ossdata.vscode-pgsql",
         "koichisasada.vscode-rdbg"
       ]

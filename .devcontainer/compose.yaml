@@ -1,4 +1,4 @@
-name: "graphql_app"
+name: "RubyonRails"
 
 services:
   rails-app:
@@ -7,7 +7,7 @@ services:
       dockerfile: .devcontainer/Dockerfile
 
     volumes:
-    - ../../graphql_app:/workspaces/graphql_app:cached
+    - ../../RubyonRails:/workspaces/RubyonRails:cached
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity

@@ -71,3 +71,5 @@ gem "graphql", "~> 2.5"
 gem "graphiql-rails", group: :development
 
 gem "jwt"
+
+gem "pry-byebug", "~> 3.12"
