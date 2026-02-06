@@ -5,9 +5,10 @@ module Mutations
     argument :name, String, required: true
     argument :email_address, String, required: true
     argument :password, String, required: true
+    argument :role, String, required: false, default_value: "author"
     field :user, Types::UserType, null: true
     field :errors, [ String ], null: false
-    def resolve(name:, email_address:, password:, role: "author")
+    def resolve(name:, email_address:, password:, role:)
       debugger
       Rails.logger.info("Debug message: #{name.inspect}, #{email_address.inspect}, #{password.inspect}")
       user = User.new(name: name, email_address: email_address, password: password, role: role)
