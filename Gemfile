@@ -72,4 +72,4 @@ gem "graphiql-rails", group: :development
 
 gem "jwt"
 
-gem "pry-byebug", "~> 3.12"
+# gem "pry-byebug", "~> 3.12"  debug is better than byebug, and pry-byebug is better than pry alone

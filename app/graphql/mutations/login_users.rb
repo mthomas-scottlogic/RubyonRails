@@ -6,6 +6,7 @@ module Mutations
     field :token, String, null: true
     field :errors, [ String ], null: false
     def resolve(email_address:, password:)
+      debugger
       user = User.find_by(email_address: email_address.downcase.strip)
       if user&.authenticate(password)
         token = JWT.encode({ user_id: user.id }, "my-secret", "HS256")

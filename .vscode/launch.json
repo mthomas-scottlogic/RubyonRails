@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Rails server (debug)",
+            "type": "rdbg",
+            "request": "launch",
+            "script": "bin/rails",
+            "args": [
+                "server"
+            ],
+            "useBundler": true,
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "RSpec (debug)",
+            "type": "rdbg",
+            "request": "launch",
+            "script": "bundle",
+            "args": [
+                "exec",
+                "rspec",
+                "spec/graphql"
+            ],
+            "useBundler": true
+        }
+    ]
+}
