@@ -1,4 +1,5 @@
 class Mutations::DeleteMatchSession < Mutations::BaseMutation
+  include AuthorizationHelper
   argument :id, ID, required: true
 
   field :success, Boolean, null: false
@@ -6,14 +7,14 @@ class Mutations::DeleteMatchSession < Mutations::BaseMutation
 
   def resolve(id:)
     debugger
-    raise GraphQL::ExecutionError, "Login to access" unless context[:current_user]
-    raise GraphQL::ExecutionError, "Only admins can delete the blogs" unless context[:current_user].admin?
+
     match_session = MatchSession.find_by(id: id)
     if match_session
+      authorize!(:destroy, match_session)
       match_session.destroy
       { success: true, errors: [] }
     else
-      { success: false, errors: [ "MatchSession not found" ] }
+      raise GraphQL::ExecutionError, "MatchSession not found"
     end
   end
 end

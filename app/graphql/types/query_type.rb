@@ -2,6 +2,7 @@
 
 module Types
   class QueryType < Types::BaseObject
+    include AuthorizationHelper
     field :node, Types::NodeType, null: true, description: "Fetches an object given its ID." do
       argument :id, ID, required: true, description: "ID of the object."
     end
@@ -33,10 +34,11 @@ module Types
     def athlete(id:)
       Athlete.find_by(id: id)
     end
-
+    debugger
     # get match sessions
     field :match_sessions, [ Types::MatchSessionType ], null: false
     def match_sessions
+      context[:ability].authorize! :read, MatchSession
       MatchSession.all
     end
 
@@ -45,7 +47,9 @@ module Types
       argument :id, ID, required: true
     end
     def match_session(id:)
-      MatchSession.find_by(id: id)
+      match_session = MatchSession.find_by(id: id)
+      authorize! :read, match_session
+      match_session
     end
 
     # get session participations

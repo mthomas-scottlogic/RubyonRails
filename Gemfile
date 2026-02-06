@@ -73,3 +73,9 @@ gem "graphiql-rails", group: :development
 gem "jwt"
 
 gem "pry-byebug", "~> 3.12"
+
+gem "cancancan", "~> 3.6"
+
+# https://graphql-ruby.org/authorization/can_can_integration.html
+
+# gem "graphql-pro", "~> 0.0.1"
